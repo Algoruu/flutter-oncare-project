@@ -7,7 +7,7 @@ plugins {
 
 android {
     namespace = "com.example.flutter_oncare"
-    compileSdk = flutter.compileSdkVersion
+    compileSdk = 35
     ndkVersion = flutter.ndkVersion
 
     compileOptions {
