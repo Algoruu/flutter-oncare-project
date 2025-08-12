@@ -3,6 +3,8 @@ import 'package:kakao_flutter_sdk/kakao_flutter_sdk.dart';
 import 'package:http/http.dart' as http;
 
 class LoginScreen extends StatelessWidget {
+  const LoginScreen({super.key});
+
   // 로딩 다이얼로그 표시 함수
   void _showLoadingDialog(BuildContext context) {
     showDialog(
@@ -10,8 +12,8 @@ class LoginScreen extends StatelessWidget {
       barrierDismissible: false,
       builder: (context) => Dialog(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-        child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 32, horizontal: 32),
+        child: const Padding(
+          padding: EdgeInsets.symmetric(vertical: 32, horizontal: 32),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -42,9 +44,9 @@ class LoginScreen extends StatelessWidget {
       if (response.statusCode == 200) {
         // 성공 시 후처리 (예: 홈 이동)
         // Navigator.pushReplacementNamed(context, '/home');
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('로그인 성공!')));
+        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('로그인 성공!')));
       } else {
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('로그인 실패: 백엔드 오류')));
+        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('로그인 실패: 백엔드 오류')));
       }
     } catch (e) {
       Navigator.of(context, rootNavigator: true).pop(); // 로딩 닫기
@@ -55,7 +57,7 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFF7F8FA),
+      backgroundColor: const Color(0xFFF7F8FA),
       body: Stack(
         children: [
           Positioned(
@@ -69,11 +71,11 @@ class LoginScreen extends StatelessWidget {
           Center(
             child: Container(
               width: 380,
-              padding: EdgeInsets.fromLTRB(32, 36, 32, 36),
+              padding: const EdgeInsets.fromLTRB(32, 36, 32, 36),
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(18),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
                     color: Colors.black12,
                     blurRadius: 18,
@@ -85,47 +87,46 @@ class LoginScreen extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Text('로그인',
+                  const Text('로그인',
                       style: TextStyle(
                           fontSize: 28, fontWeight: FontWeight.bold)),
-                  SizedBox(height: 8),
-                  Text('요양보호사 또는 사회복지사만 이용 가능합니다',
+                  const SizedBox(height: 8),
+                  const Text('요양보호사 또는 사회복지사만 이용 가능합니다',
                       style: TextStyle(
                           fontSize: 14, color: Colors.black54)),
-                  SizedBox(height: 8),
-                  Divider(),
-                  SizedBox(height: 12),
+                  const SizedBox(height: 8),
+                  const Divider(),
+                  const SizedBox(height: 12),
                   ElevatedButton(
                     onPressed: () {
                       _loginWithKakao(context);
                     },
-                    child: Text('카카오로 로그인',
-                        style: TextStyle(
-                            fontSize: 16, fontWeight: FontWeight.bold)),
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Color(0xFFFFE812),
+                      backgroundColor: const Color(0xFFFFE812),
                       foregroundColor: Colors.black,
-                      minimumSize: Size(double.infinity, 48),
+                      minimumSize: const Size(double.infinity, 48),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),
                       elevation: 0,
                     ),
+                    child: const Text('카카오로 로그인',
+                        style: TextStyle(
+                            fontSize: 16, fontWeight: FontWeight.bold)),
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   OutlinedButton(
                     onPressed: () {},
-                    child: Text('이메일로 로그인',
-                        style: TextStyle(fontSize: 16)),
                     style: OutlinedButton.styleFrom(
-                      minimumSize: Size(double.infinity, 48),
+                      minimumSize: const Size(double.infinity, 48),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),
-                      side: BorderSide(color: Colors.black12),
+                      side: const BorderSide(color: Colors.black12),
                     ),
+                    child: const Text('이메일로 로그인',
+                        style: TextStyle(fontSize: 16)),
                   ),
-                  // 하단 여백을 상단과 동일하게 맞춤
                 ],
               ),
             ),

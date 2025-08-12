@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class SignupScreen extends StatefulWidget {
+  const SignupScreen({super.key});
+
   @override
   State<SignupScreen> createState() => _SignupScreenState();
 }
@@ -11,15 +13,15 @@ class _SignupScreenState extends State<SignupScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFF7F8FA),
+      backgroundColor: const Color(0xFFF7F8FA),
       body: Center(
         child: Container(
           width: 380,
-          padding: EdgeInsets.symmetric(horizontal: 32, vertical: 36),
+          padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 36),
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(18),
-            boxShadow: [
+            boxShadow: const [
               BoxShadow(
                 color: Colors.black12,
                 blurRadius: 18,
@@ -31,28 +33,28 @@ class _SignupScreenState extends State<SignupScreen> {
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Text('역할 선택',
+              const Text('역할 선택',
                   style:
                       TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
-              SizedBox(height: 8),
-              Text('온케어에서의 역할을 선택해주세요',
+              const SizedBox(height: 8),
+              const Text('온케어에서의 역할을 선택해주세요',
                   style: TextStyle(fontSize: 14, color: Colors.black54)),
-              SizedBox(height: 24),
+              const SizedBox(height: 24),
               GestureDetector(
                 onTap: () => setState(() => _role = 'careworker'),
                 child: Container(
                   decoration: BoxDecoration(
-                    color: _role == 'careworker' ? Color(0xFFE8F5E9) : Colors.white,
+                    color: _role == 'careworker' ? const Color(0xFFE8F5E9) : Colors.white,
                     border: Border.all(
-                      color: _role == 'careworker' ? Color(0xFF6DB686) : Colors.black12,
+                      color: _role == 'careworker' ? const Color(0xFF6DB686) : Colors.black12,
                       width: 2,
                     ),
                     borderRadius: BorderRadius.circular(10),
                   ),
-                  padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                  padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
                   child: Row(
                     children: [
-                      Expanded(
+                      const Expanded(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -65,28 +67,28 @@ class _SignupScreenState extends State<SignupScreen> {
                         value: 'careworker',
                         groupValue: _role,
                         onChanged: (val) => setState(() => _role = val),
-                        activeColor: Color(0xFF6DB686),
+                        activeColor: const Color(0xFF6DB686),
                       ),
                     ],
                   ),
                 ),
               ),
-              SizedBox(height: 8),
+              const SizedBox(height: 8),
               GestureDetector(
                 onTap: () => setState(() => _role = 'socialworker'),
                 child: Container(
                   decoration: BoxDecoration(
-                    color: _role == 'socialworker' ? Color(0xFFE8F5E9) : Colors.white,
+                    color: _role == 'socialworker' ? const Color(0xFFE8F5E9) : Colors.white,
                     border: Border.all(
-                      color: _role == 'socialworker' ? Color(0xFF6DB686) : Colors.black12,
+                      color: _role == 'socialworker' ? const Color(0xFF6DB686) : Colors.black12,
                       width: 2,
                     ),
                     borderRadius: BorderRadius.circular(10),
                   ),
-                  padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                  padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
                   child: Row(
                     children: [
-                      Expanded(
+                      const Expanded(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -99,31 +101,31 @@ class _SignupScreenState extends State<SignupScreen> {
                         value: 'socialworker',
                         groupValue: _role,
                         onChanged: (val) => setState(() => _role = val),
-                        activeColor: Color(0xFF6DB686),
+                        activeColor: const Color(0xFF6DB686),
                       ),
                     ],
                   ),
                 ),
               ),
-              SizedBox(height: 24),
+              const SizedBox(height: 24),
               ElevatedButton(
                 onPressed: _role == null
                     ? null
                     : () {
                         // TODO: 역할 선택 완료 처리
                       },
-                child: Text('시작하기',
-                    style:
-                        TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Color(0xFF6DB686),
+                  backgroundColor: const Color(0xFF6DB686),
                   foregroundColor: Colors.white,
-                  minimumSize: Size(double.infinity, 48),
+                  minimumSize: const Size(double.infinity, 48),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
                   elevation: 0,
                 ),
+                child: const Text('시작하기',
+                    style:
+                        TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
               ),
             ],
           ),

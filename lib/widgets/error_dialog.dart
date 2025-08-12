@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 
 class ErrorDialog extends StatelessWidget {
   final String message;
-  const ErrorDialog({required this.message});
+  const ErrorDialog({super.key, required this.message});
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: Text('Error'),
+      title: const Text('Error'),
       content: Text(message),
       actions: [
         TextButton(
           onPressed: () => Navigator.of(context).pop(),
-          child: Text('OK'),
+          child: const Text('OK'),
         ),
       ],
     );
